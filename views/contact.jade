@@ -1,0 +1,40 @@
+extends /layouts/default
+
+block title
+    title Mimosa &rsaquo; #{page}
+
+block nav
+    include /blocks/nav
+
+block content
+    div.content.container
+        form(role="form", method='post')
+            div.row
+                div.col-md-5
+                    label(for="message") Message
+                    textarea#message.form-control.xlarge.col-md-5(rows="8")
+                div.col-md-6
+                    div.col-md-6
+                        div.form-group
+                            label(for="firstName") First Name
+                            input#firstName.form-control(type="text", placeholder="Enter Firstname")
+                        div.form-goup
+                            label(for="email") Email Address
+                            input#email.form-control(type="email", placeholder="Enter Email")
+                    div.col-md-6
+                        div.form-group
+                            label(for="lastName") Last Name
+                            input#lastName.form-control(type="text", placeholder="Enter Lastname")
+                        div.form-group
+                            label(for="subject") Subject
+                            select#subject.form-control(type="text")
+                                option(value="none", disabled) -- Select Subject --
+                                option(value='request') Request
+                    div.col-md-6
+                        div.well
+                            button.btn.btn-sm.btn-warning.col-md-12(type="reset") Reset
+                    div.col-md-6
+                        div.well
+                            button.btn.btn-sm.btn-primary.col-md-12(type="submit") Send
+block foot
+    include /blocks/foot

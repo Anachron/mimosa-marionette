@@ -1,0 +1,17 @@
+extends /layouts/default
+
+block title
+    title Mimosa &rsaquo; #{page}
+
+block nav
+    include /blocks/nav
+
+block content
+    div.content.container
+        h2 ProductName
+        p
+            small by
+            b AuthorName
+
+block foot
+    include /blocks/foot
