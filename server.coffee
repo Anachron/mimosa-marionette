@@ -16,7 +16,7 @@ exports.startServer = (config, callback) ->
     app.engine config.server.views.extension, engines[config.server.views.compileWith]
     app.set 'view engine', config.server.views.extension
     app.use express.favicon()
-    app.use express.bodyParser()
+    app.use express.urlencoded()
     app.use express.methodOverride()
     app.use express.compress()
     app.use config.server.base, app.router

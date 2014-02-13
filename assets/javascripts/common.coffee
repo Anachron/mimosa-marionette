@@ -19,8 +19,6 @@ requirejs.config
       exports: 'Morris'
     # Raphael:
     # Require:
-    UIKit:
-      deps: ['jQuery']
     # Underscore:
 
   paths:
@@ -33,7 +31,6 @@ requirejs.config
     Morris:      'vendor/morris/0.4.3/morris'
     Raphael:     'vendor/raphael/2.1.2/raphael'
     Require:     'vendor/require/2.1.8/require'
-    UIKit:       'vendor/uikit/2.0.0/uikit'
     Underscore:  'vendor/underscore/1.5.2/underscore'
 
   hbs:
