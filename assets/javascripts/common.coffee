@@ -2,37 +2,48 @@ requirejs.config
   urlArgs: "b=" + ((new Date()).getTime())
 
   shim:
-    App:
-      deps: ['Marionette']
+    'App':
+      deps: ['backbone.marionette', 'semantic']
       exports: 'App'
-    Backbone:
-      deps: ['Underscore']
-    BackboneLS:
-      deps: ['Backbone']
-    # Handlebars:
-    # jQuery:
-    Marionette:
-      deps: ['jQuery', 'Backbone', 'BackboneLS']
-      exports: 'Backbone.Marionette'
-    Morris:
-      deps: ['jQuery', 'Raphael']
-      exports: 'Morris'
-    # Raphael:
-    # Require:
-    # Underscore:
+    'backbone':
+      deps: ['underscore']
+    'backbone.babysitter':
+      deps: []
+    'backbone.localstorage':
+      deps: ['backbone']
+    'backbone.marionette':
+      deps: ['backbone', 'backbone.babysitter', 'backbone.localstorage', 'backbone.wreqr', 'jquery']
+      exports: 'backbone.marionette'
+    # 'handlebars':
+    # 'jquery':
+    'morris':
+      deps: ['jquery', 'raphael']
+      exports: 'morris'
+    # 'raphael':
+    # 'require':
+    'semantic':
+      deps: ['jquery']
+      exports: 'semantic'
+    'underscore':
+      deps: []
+      exports: '_'
 
   paths:
-    App:         'app'
-    Backbone:    'vendor/backbone/1.1.0/backbone'
-    BackboneLS:  'vendor/backbone.localstorage/1.1.7/backbone.localStorage'
-    Handlebars:  'vendor/handlebars/1.3.0/handlebars.amd'
-    jQuery:      'vendor/jquery/2.0.3/jquery'
-    Marionette:  'vendor/marionette/1.4.1/backbone.marionette'
-    Morris:      'vendor/morris/0.4.3/morris'
-    Raphael:     'vendor/raphael/2.1.2/raphael'
-    Require:     'vendor/require/2.1.8/require'
-    Underscore:  'vendor/underscore/1.5.2/underscore'
+    'App':                              'app'
+    'backbone':                         'vendor/backbone/backbone'
+    'backbone.babysitter':              'vendor/backbone.babysitter/backbone.babysitter'
+    'backbone.epoxy':                   'vendor/backbone.epoxy/backbone.epoxy'
+    'backbone.localstorage':            'vendor/backbone.localstorage/backbone.localStorage'
+    'backbone.marionette':              'vendor/backbone.marionette/backbone.marionette'
+    'backbone.wreqr':                   'vendor/backbone.wreqr/backbone.wreqr'
+    'handlebars':                       'vendor/handlebars/handlebars'
+    'jquery':                           'vendor/jquery/jquery'
+    'morris':                           'vendor/morris.js/morris'
+    'raphael':                          'vendor/raphael/raphael'
+    'require':                          'vendor/requirejs/require'
+    'semantic':                         'vendor/semantic/semantic'
+    'underscore':                       'vendor/underscore/underscore'
 
   hbs:
-      disableI18n: true
-      templateExtension: "html"
+    disableI18n: true
+    templateExtension: "html"

@@ -1,4 +1,4 @@
-define ['Marionette'], (Marionette) ->
+define ['backbone.marionette'], (Marionette) ->
   # Provide some Handlebars candy to Marionette!
   # Thanks to sashasimkin -> https://gist.github.com/sashasimkin/5876792
   Marionette.Handlebars =

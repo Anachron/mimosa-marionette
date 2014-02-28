@@ -4,3 +4,4 @@ require ['common'], () ->
     app.start
     # and log it in the console
     console.log 'App started!'
+    console.log app
