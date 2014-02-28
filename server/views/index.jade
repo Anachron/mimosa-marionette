@@ -1,15 +1,16 @@
 extends /layouts/default
 
 block title
-	title Mimosa &rsaquo; #{page}
+  title Mimosa &rsaquo; #{page}
 
 block nav
-	include /blocks/nav
+  include /blocks/nav
 
 block content
-	div.main.container
-		p
-			| Some cool text!
+  div.main.container
+
+block load
+  include /blocks/load
 
 block foot
-	include /blocks/foot
+  include /blocks/foot

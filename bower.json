@@ -10,6 +10,7 @@
     "handlebars": "~1.3.0",
     "jquery": "~2.1.0",
     "morris.js": "morrisjs/morris.js",
+    "normalize-css": "3.0.0",
     "raphael": "~2.1.2",
     "requirejs": "~2.1.11",
     "semantic": "~0.13.0"

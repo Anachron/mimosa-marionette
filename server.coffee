@@ -26,23 +26,12 @@ exports.startServer = (config, callback) ->
     app.use express.errorHandler()
 
   options =
-    reload:    config.liveReload.enabled
-    optimize:  config.isOptimize ? false
-    cachebust: if process.env.NODE_ENV isnt "production" then "?b=#{(new Date()).getTime()}" else ''
+    cachebust:  if process.env.NODE_ENV isnt "production" then "?b=#{(new Date()).getTime()}" else ''
+    optimize:   config.isOptimize ? false
+    appType:    'general'
+    reload:     config.liveReload.enabled
 
   app.get '/', (req, res) ->
-    options.page = 'index'
-    options.appType = false
-    res.render options.page, options
-
-  app.get '/todos', (req, res) ->
-    options.page = 'todos'
-    options.appType = 'todos'
-    res.render options.page, options
-
-  app.get '/:page', (req, res) ->
-    options.page = req.params.page
-    options.appType = false
-    res.render options.page, options
+    res.render 'index', options
 
   callback(server)
