@@ -28,7 +28,7 @@ exports.startServer = (config, callback) ->
   options =
     cachebust:  if process.env.NODE_ENV isnt "production" then "?b=#{(new Date()).getTime()}" else ''
     optimize:   config.isOptimize ? false
-    appType:    'general'
+    appType:    'app'
     reload:     config.liveReload.enabled
 
   app.get '/', (req, res) ->

@@ -15,6 +15,7 @@ exports.config = {
     copy:
       mainOverrides:
         'semantic': [
+          'build/packaged/fonts': '../../fonts/vendor/semantic'
           'build/packaged/images': '../../images/vendor/semantic'
           'build/packaged/css/semantic.css'
           'build/packaged/javascript/semantic.js'

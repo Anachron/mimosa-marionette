@@ -2,18 +2,21 @@ requirejs.config
   urlArgs: "b=" + ((new Date()).getTime())
 
   shim:
-    'App':
-      deps: ['backbone.marionette', 'semantic']
-      exports: 'App'
+    'app':
+      deps: ['basics']
+      exports: 'app'
+    'basics':
+      deps: ['backbone.marionette']
+      exports: 'Backbone.Marionette'
     'backbone':
       deps: ['underscore']
     'backbone.babysitter':
-      deps: []
+      deps: ['backbone']
     'backbone.localstorage':
       deps: ['backbone']
     'backbone.marionette':
       deps: ['backbone', 'backbone.babysitter', 'backbone.localstorage', 'backbone.wreqr', 'jquery']
-      exports: 'backbone.marionette'
+      exports: 'Backbone.Marionette'
     # 'handlebars':
     # 'jquery':
     'morris':
@@ -29,7 +32,8 @@ requirejs.config
       exports: '_'
 
   paths:
-    'App':                              'app'
+    'app':                              'app'
+    'basics':                           'basics'
     'backbone':                         'vendor/backbone/backbone'
     'backbone.babysitter':              'vendor/backbone.babysitter/backbone.babysitter'
     'backbone.epoxy':                   'vendor/backbone.epoxy/backbone.epoxy'
