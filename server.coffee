@@ -1,5 +1,6 @@
-express    =    require 'express'
-engines    =    require 'consolidate'
+express      =  require 'express'
+engines      =  require 'consolidate'
+packJson     =  require './package.json'
 
 exports.startServer = (config, callback) ->
 
@@ -29,6 +30,7 @@ exports.startServer = (config, callback) ->
     cachebust:  if process.env.NODE_ENV isnt "production" then "?b=#{(new Date()).getTime()}" else ''
     optimize:   config.isOptimize ? false
     appType:    'app'
+    packJson:   packJson
     reload:     config.liveReload.enabled
 
   app.get '/', (req, res) ->

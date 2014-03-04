@@ -1,13 +1,13 @@
 {
-  "name": "appname",
-  "version": "0.0.1",
-  "homepage": "",
-  "author": "",
+  "name": "satisfy",
+  "version": "0.1.1",
+  "homepage": "https://github.com/Anachron/satisfy",
+  "author": "Anachron",
   "description": "",
   "contributors": [
     {
-      "name": "",
-      "email": ""
+      "name": "Anachron",
+      "email": "Anachron14@gmx.de"
     }
   ],
   "private": true,

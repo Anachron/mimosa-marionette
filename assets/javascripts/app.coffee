@@ -1,5 +1,5 @@
 require ['common'], () ->
-  require ['backbone.marionette', 'jquery'], (Marionette, $) ->
+  require ['backbone.marionette', 'jquery', 'css!../stylesheets/app/test'], (Marionette, $) ->
     app = new Backbone.Marionette.Application()
     # Initialize the dimmer hiding
     app.on 'initialize:after', (options) ->

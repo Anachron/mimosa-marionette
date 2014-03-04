@@ -40,6 +40,7 @@ requirejs.config
     'backbone.localstorage':            'vendor/backbone.localstorage/backbone.localStorage'
     'backbone.marionette':              'vendor/backbone.marionette/backbone.marionette'
     'backbone.wreqr':                   'vendor/backbone.wreqr/backbone.wreqr'
+    'css':                              'vendor/require-css/css'
     'handlebars':                       'vendor/handlebars/handlebars'
     'jquery':                           'vendor/jquery/jquery'
     'morris':                           'vendor/morris.js/morris'
