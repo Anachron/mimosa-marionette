@@ -1,13 +1,16 @@
 extends /layouts/default
 
 block title
-  title #{packJson.name} &rsaquo; Home
+  title #{packJson.name} &rsaquo; Information
 
 block nav
   include /blocks/nav
 
 block content
   div.main.container
+    h2.ui.dividing.header Node
+    h2.ui.dividing.header Mimosa
+    h2.ui.dividing.header Bower
 
 block load
   include /blocks/load

@@ -12,6 +12,7 @@
     "morris.js": "morrisjs/morris.js",
     "normalize-css": "3.0.0",
     "raphael": "~2.1.2",
+    "require-hbs": "SlexAxton/require-handlebars-plugin",
     "require-css": "~0.1.2",
     "requirejs": "~2.1.11",
     "semantic": "~0.13.0"

@@ -32,6 +32,7 @@ requirejs.config
       exports: '_'
 
   paths:
+    # Libs
     'app':                              'app'
     'basics':                           'basics'
     'backbone':                         'vendor/backbone/backbone'
@@ -42,13 +43,10 @@ requirejs.config
     'backbone.wreqr':                   'vendor/backbone.wreqr/backbone.wreqr'
     'css':                              'vendor/require-css/css'
     'handlebars':                       'vendor/handlebars/handlebars'
+    'hbs':                              'vendor/require-hbs/hbs'
     'jquery':                           'vendor/jquery/jquery'
     'morris':                           'vendor/morris.js/morris'
     'raphael':                          'vendor/raphael/raphael'
     'require':                          'vendor/requirejs/require'
     'semantic':                         'vendor/semantic/semantic'
     'underscore':                       'vendor/underscore/underscore'
-
-  hbs:
-    disableI18n: true
-    templateExtension: "html"

@@ -419,7 +419,7 @@
   content: '';
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8) url(/images/vendor/semantic/loader-large.gif) no-repeat 50% 50%;
+  background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
   visibility: visible;
 }
 
@@ -2026,7 +2026,7 @@ body > .ui.grid {
   content: '';
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8) url(/images/vendor/semantic/loader-large.gif) no-repeat 50% 50%;
+  background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
   visibility: visible;
 }
 
@@ -4266,8 +4266,8 @@ body > .ui.grid {
 
 @font-face {
   font-family: 'Basic Icons';
-  src: url(/fonts/vendor/semantic/basic.icons.eot);
-  src: url(/fonts/vendor/semantic/basic.icons.eot?#iefix) format('embedded-opentype'), url(/fonts/vendor/semantic/basic.icons.svg#basic.icons) format('svg'), url(/fonts/vendor/semantic/basic.icons.woff) format('woff'), url(/fonts/vendor/semantic/basic.icons.ttf) format('truetype');
+  src: url(../fonts/basic.icons.eot);
+  src: url(../fonts/basic.icons.eot?#iefix) format('embedded-opentype'), url(../fonts/basic.icons.svg#basic.icons) format('svg'), url(../fonts/basic.icons.woff) format('woff'), url(../fonts/basic.icons.ttf) format('truetype');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -5492,7 +5492,7 @@ i.massive.basic.icon {
   width: 100%;
   height: 100%;
   content: '';
-  background: transparent url(/images/vendor/semantic/loader-mini.gif) no-repeat 50% 50%;
+  background: transparent url(../images/loader-mini.gif) no-repeat 50% 50%;
 }
 
 .ui.labeled.icon.loading.button .icon {
@@ -5957,19 +5957,19 @@ i.massive.basic.icon {
 /* loading */
 
 .ui.huge.loading.button:after {
-  background-image: url(/images/vendor/semantic/loader-small.gif);
+  background-image: url(../images/loader-small.gif);
 }
 
 .ui.massive.buttons .loading.button:after,
 .ui.gigantic.buttons .loading.button:after,
 .ui.massive.loading.button:after,
 .ui.gigantic.loading.button:after {
-  background-image: url(/images/vendor/semantic/loader-medium.gif);
+  background-image: url(../images/loader-medium.gif);
 }
 
 .ui.huge.loading.button:after,
 .ui.huge.loading.button.active:after {
-  background-image: url(/images/vendor/semantic/loader-small.gif);
+  background-image: url(../images/loader-small.gif);
 }
 
 .ui.massive.buttons .loading.button:after,
@@ -5980,7 +5980,7 @@ i.massive.basic.icon {
 .ui.gigantic.buttons .loading.button.active:after,
 .ui.massive.loading.button.active:after,
 .ui.gigantic.loading.button.active:after {
-  background-image: url(/images/vendor/semantic/loader-medium.gif);
+  background-image: url(../images/loader-medium.gif);
 }
 
 /*--------------
@@ -7365,8 +7365,8 @@ h5.ui.header {
 
 @font-face {
   font-family: 'Icons';
-  src: url(/fonts/vendor/semantic/icons.eot);
-  src: url(/fonts/vendor/semantic/icons.eot?#iefix) format('embedded-opentype'), url(/fonts/vendor/semantic/icons.svg#icons) format('svg'), url(/fonts/vendor/semantic/icons.woff) format('woff'), url(/fonts/vendor/semantic/icons.ttf) format('truetype');
+  src: url(../fonts/icons.eot);
+  src: url(../fonts/icons.eot?#iefix) format('embedded-opentype'), url(../fonts/icons.svg#icons) format('svg'), url(../fonts/icons.woff) format('woff'), url(../fonts/icons.ttf) format('truetype');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -9413,7 +9413,7 @@ img.ui.image {
 ---------------------*/
 
 .ui.loading.input > .icon {
-  background: url(/images/vendor/semantic/loader-mini.gif) no-repeat 50% 50%;
+  background: url(../images/loader-mini.gif) no-repeat 50% 50%;
 }
 
 .ui.loading.input > .icon:before,
@@ -10646,28 +10646,28 @@ a.ui.teal.label:hover:before {
 
 .ui.dimmer .mini.ui.loader,
 .ui.inverted .mini.ui.loader {
-  background-image: url(/images/vendor/semantic/loader-mini-inverted.gif);
+  background-image: url(../images/loader-mini-inverted.gif);
 }
 
 /* Small Size */
 
 .ui.dimmer .small.ui.loader,
 .ui.inverted .small.ui.loader {
-  background-image: url(/images/vendor/semantic/loader-small-inverted.gif);
+  background-image: url(../images/loader-small-inverted.gif);
 }
 
 /* Standard Size */
 
 .ui.dimmer .ui.loader,
 .ui.inverted.loader {
-  background-image: url(/images/vendor/semantic/loader-medium-inverted.gif);
+  background-image: url(../images/loader-medium-inverted.gif);
 }
 
 /* Large Size */
 
 .ui.dimmer .large.ui.loader,
 .ui.inverted .large.ui.loader {
-  background-image: url(/images/vendor/semantic/loader-large-inverted.gif);
+  background-image: url(../images/loader-large-inverted.gif);
 }
 
 /*-------------------
@@ -10680,7 +10680,7 @@ a.ui.teal.label:hover:before {
 .ui.mini.loader {
   width: 16px;
   height: 16px;
-  background-image: url(/images/vendor/semantic/loader-mini.gif);
+  background-image: url(../images/loader-mini.gif);
 }
 
 /* Small Size */
@@ -10689,14 +10689,14 @@ a.ui.teal.label:hover:before {
 .ui.small.loader {
   width: 24px;
   height: 24px;
-  background-image: url(/images/vendor/semantic/loader-small.gif);
+  background-image: url(../images/loader-small.gif);
 }
 
 .ui.inverted.dimmer .ui.loader,
 .ui.loader {
   width: 32px;
   height: 32px;
-  background: url(/images/vendor/semantic/loader-medium.gif) no-repeat;
+  background: url(../images/loader-medium.gif) no-repeat;
   background-position: 48% 0px;
 }
 
@@ -10706,7 +10706,7 @@ a.ui.teal.label:hover:before {
 .ui.loader.large {
   width: 64px;
   height: 64px;
-  background-image: url(/images/vendor/semantic/loader-large.gif);
+  background-image: url(../images/loader-large.gif);
 }
 
 /*-------------------
@@ -14618,7 +14618,7 @@ a.ui.nag {
 ---------------*/
 
 .ui.search.loading .input .icon {
-  background: url(/images/vendor/semantic/loader-mini.gif) no-repeat 50% 50%;
+  background: url(../images/loader-mini.gif) no-repeat 50% 50%;
 }
 
 .ui.search.loading .input .icon:before,
@@ -15121,7 +15121,7 @@ body.pushed.scrolling.ui.dimmable {
   width: 100%;
   height: 100%;
   padding-top: 75px;
-  background: url(/images/vendor/semantic/loader-large.gif) no-repeat 0px 0px;
+  background: url(../images/loader-large.gif) no-repeat 0px 0px;
   visibility: visible;
 }
 /*******************************

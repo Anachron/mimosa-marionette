@@ -20,6 +20,9 @@ exports.config = {
           'build/packaged/css/semantic.css'
           'build/packaged/javascript/semantic.js'
         ]
+        'require-hbs': [
+          'hbs.js': 'vendor/require-hbs/hbs.js'
+        ]
 
   testemRequire:
     executeDuringBuild: false

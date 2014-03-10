@@ -36,4 +36,7 @@ exports.startServer = (config, callback) ->
   app.get '/', (req, res) ->
     res.render 'index', options
 
+  app.get '/info', (req, res) ->
+    res.render 'info', options
+
   callback(server)
