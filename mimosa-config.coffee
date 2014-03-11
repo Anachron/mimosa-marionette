@@ -21,10 +21,13 @@ exports.config = {
           'build/packaged/javascript/semantic.js'
         ]
         'require-hbs': [
-          'hbs.js': 'vendor/require-hbs/hbs.js'
+          'hbs.js'
         ]
 
   testemRequire:
     executeDuringBuild: false
     executeDuringWatch: false
+
+  copy:
+    extensions: ["js","css","png","jpg","jpeg","gif","html","eot","svg","ttf","woff","otf","yaml","kml","ico","htc","htm","json","txt","xml","xsd","map","md","mp4", "hbs"]
 }

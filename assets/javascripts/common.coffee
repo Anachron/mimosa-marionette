@@ -19,6 +19,8 @@ requirejs.config
       exports: 'Backbone.Marionette'
     # 'handlebars':
     # 'jquery':
+    'hbs':
+      deps: ['handlebars']
     'morris':
       deps: ['jquery', 'raphael']
       exports: 'morris'
@@ -49,4 +51,5 @@ requirejs.config
     'raphael':                          'vendor/raphael/raphael'
     'require':                          'vendor/requirejs/require'
     'semantic':                         'vendor/semantic/semantic'
+    'text':                             'vendor/require-text/text'
     'underscore':                       'vendor/underscore/underscore'
