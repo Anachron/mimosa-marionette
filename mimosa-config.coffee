@@ -1,6 +1,6 @@
 exports.config = {
 
-  modules: ['jshint', 'csslint', 'server', 'require', 'minify-js', 'minify-css', 'live-reload', 'bower', 'coffeescript', 'less', 'copy', 'testem-require', 'server-reload']
+  modules: ['jshint', 'csslint', 'server', 'require', 'minify-js', 'minify-css', 'live-reload', 'bower', 'coffeescript', 'less', 'copy', 'testem-require', 'server-reload', 'es6-module-transpiler']
 
   server:
     views:
@@ -22,6 +22,9 @@ exports.config = {
         ]
         'require-hbs': [
           'hbs.js'
+        ]
+        'handlebars': [
+          'handlebars.js'
         ]
 
   testemRequire:

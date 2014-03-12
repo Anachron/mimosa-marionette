@@ -1,13 +1,14 @@
 require ['common'], () ->
   require [
       'backbone.marionette', 
-      'jquery', 
+      'jquery',
+      'handlebars',
       'hbs!../templates/app/test'
-    ], (Marionette, $, tpl) ->
+    ], (Marionette, $, hb, tpl) ->
     app = new Backbone.Marionette.Application()
     # Initialize the dimmer hiding
     app.on 'initialize:after', (options) ->
       $('.main.dimmer').hide()
     # Start the app
     app.start()
-    console.log tpl
+    console.log tpl({adjective: 'cool'})

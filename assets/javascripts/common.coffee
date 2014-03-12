@@ -17,15 +17,15 @@ requirejs.config
     'backbone.marionette':
       deps: ['backbone', 'backbone.babysitter', 'backbone.localstorage', 'backbone.wreqr', 'jquery']
       exports: 'Backbone.Marionette'
-    # 'handlebars':
-    # 'jquery':
-    'hbs':
-      deps: ['handlebars']
+    'handlebars':
+      init: () ->
+        #https://github.com/wycats/handlebars.js/issues/333
+        window.Handlebars = Handlebars
+      exports: 'Handlebars'
+
     'morris':
       deps: ['jquery', 'raphael']
       exports: 'morris'
-    # 'raphael':
-    # 'require':
     'semantic':
       deps: ['jquery']
       exports: 'semantic'
