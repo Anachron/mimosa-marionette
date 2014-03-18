@@ -1,6 +1,6 @@
 exports.config = {
 
-  modules: ['jshint', 'csslint', 'server', 'require', 'minify-js', 'minify-css', 'live-reload', 'bower', 'coffeescript', 'less', 'copy', 'testem-require', 'server-reload', 'es6-module-transpiler']
+  modules: ['jshint', 'csslint', 'server', 'require', 'minify-js', 'minify-css', 'live-reload', 'bower', 'coffeescript', 'less', 'copy', 'testem-require', 'server-reload']
 
   server:
     views:
@@ -14,6 +14,12 @@ exports.config = {
   bower:
     copy:
       mainOverrides:
+        'handlebars': [
+          'handlebars.js'
+        ]
+        'marionette.loading': [
+          'marionette.loading.js'
+        ]
         'semantic': [
           'build/packaged/fonts': '../../fonts/vendor/semantic'
           'build/packaged/images': '../../images/vendor/semantic'
@@ -22,9 +28,6 @@ exports.config = {
         ]
         'require-hbs': [
           'hbs.js'
-        ]
-        'handlebars': [
-          'handlebars.js'
         ]
 
   testemRequire:

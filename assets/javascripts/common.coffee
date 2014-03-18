@@ -16,7 +16,7 @@ requirejs.config
       deps: ['backbone']
     'backbone.marionette':
       deps: ['backbone', 'backbone.babysitter', 'backbone.localstorage', 'backbone.wreqr', 'jquery']
-      exports: 'Backbone.Marionette'
+      exports: 'Marionette'
     'handlebars':
       init: () ->
         #https://github.com/wycats/handlebars.js/issues/333
@@ -53,3 +53,7 @@ requirejs.config
     'semantic':                         'vendor/semantic/semantic'
     'text':                             'vendor/require-text/text'
     'underscore':                       'vendor/underscore/underscore'
+    # Folders
+    'j':                                '../javascripts'
+    'c':                                '../stylesheets'
+    't':                                '../templates/'
