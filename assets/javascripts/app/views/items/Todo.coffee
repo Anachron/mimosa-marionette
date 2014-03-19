@@ -14,6 +14,8 @@ define [
       },
 
       toggleDone: () ->
-        $(@el).find('.checkbox').toggleClass('done')
+        @model.set('done', !@model.get('done'))
+
+        $(@el).children('.checkbox').toggleClass('done', @model.get('done'))
 
     })

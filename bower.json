@@ -9,6 +9,7 @@
     "backbone.marionette": "~1.6.2",
     "backbone.mutators": "~0.4.1",
     "handlebars": "2.0.0-alpha.2",
+    "assemble-handlebars-helpers": "~0.5.4",
     "jquery": "~2.1.0",
     "marionette.loading": "gogiel/marionette.loading",
     "morris.js": "morrisjs/morris.js",

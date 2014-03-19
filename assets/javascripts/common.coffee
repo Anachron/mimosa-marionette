@@ -22,7 +22,8 @@ requirejs.config
         #https://github.com/wycats/handlebars.js/issues/333
         window.Handlebars = Handlebars
       exports: 'Handlebars'
-
+    'handlebars.helpers':
+      deps: ['handlebars']
     'morris':
       deps: ['jquery', 'raphael']
       exports: 'morris'
@@ -45,6 +46,7 @@ requirejs.config
     'backbone.wreqr':                   'vendor/backbone.wreqr/backbone.wreqr'
     'css':                              'vendor/require-css/css'
     'handlebars':                       'vendor/handlebars/handlebars'
+    'handlebars.helpers':               'vendor/handlebars-helpers/index'
     'hbs':                              'vendor/require-hbs/hbs'
     'jquery':                           'vendor/jquery/jquery'
     'morris':                           'vendor/morris.js/morris'
