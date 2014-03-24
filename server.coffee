@@ -39,4 +39,7 @@ exports.startServer = (config, callback) ->
   app.get '/info', (req, res) ->
     res.render 'info', options
 
+  app.get '/contact', (req, res) ->
+    res.render 'contact', options
+
   callback(server)

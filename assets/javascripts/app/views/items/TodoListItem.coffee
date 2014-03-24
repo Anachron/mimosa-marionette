@@ -1,7 +1,7 @@
 define [
     'backbone',
-    'marionette'
-    'hbs!/templates/app/Todo'
+    'backbone.marionette',
+    'hbs!t/templates/app/items/TodoListItem'
   ], (Backbone, Marionette, TodoListItemTemplate) ->
     
     TodoListItemView = Marionette.ItemView.extend({
