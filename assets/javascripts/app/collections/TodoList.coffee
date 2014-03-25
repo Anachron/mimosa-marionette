@@ -1,6 +1,6 @@
 define [
     'backbone',
-    '/javascripts/app/models/Todo'
+    'j/app/models/Todo'
   ], (Backbone, TodoModel) ->
     
     TodoListCollection = Backbone.Collection.extend({

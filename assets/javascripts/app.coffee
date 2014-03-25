@@ -19,7 +19,7 @@ require ['common'], () ->
       app.addRegions({
         'MainRegion': '#main'
       })
-###
+
       app.MainRegion.show(
         new TodoView({
           'model': new TodoModel({
@@ -29,4 +29,4 @@ require ['common'], () ->
         })
       )
 
-      console.log app.MainRegion###
+      console.log app.MainRegion
