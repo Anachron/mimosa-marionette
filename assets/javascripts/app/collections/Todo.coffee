@@ -3,6 +3,6 @@ define [
     'j/app/models/Todo'
   ], (Backbone, TodoModel) ->
     
-    TodoListCollection = Backbone.Collection.extend({
+    TodoCollection = Backbone.Collection.extend({
       model: TodoModel
     })

@@ -6,7 +6,8 @@ define [
     'css!c/app/Todo'
   ], (Backbone, Marionette, $, TodoTemplate) ->
     
-    TodoItemView = Marionette.ItemView.extend({
+    TodoView = Marionette.ItemView.extend({
+      'className': 'todo list item'
       'template': TodoTemplate,
 
       'events': {
@@ -16,6 +17,9 @@ define [
       toggleDone: () ->
         @model.set('done', !@model.get('done'))
 
-        $(@el).children('.checkbox').toggleClass('done', @model.get('done'))
+        $(@el).toggleClass('done', @model.get('done'))
 
+      onRender: () ->
+        if @model.get('done')
+          $(@el).addClass('done')
     })

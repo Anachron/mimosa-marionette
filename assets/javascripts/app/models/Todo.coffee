@@ -4,4 +4,4 @@ define [
 
     Todo = Backbone.Model.extend({
       
-    });
+    })

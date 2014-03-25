@@ -3,9 +3,10 @@ require ['common'], () ->
       'backbone.marionette', 
       'jquery',
       'semantic',
-      'j/app/views/items/Todo',
-      'j/app/models/Todo'
-    ], (Marionette, $, semantic, TodoView, TodoModel) ->
+      'j/app/collections/Todo',
+      'j/app/views/collections/Todo',
+      'hbs!t/app/collections/Todo'
+    ], (Marionette, $, semantic, TodoCollection, TodoCollectionView, TodoCollectionTemplate) ->
 
       app = new Marionette.Application()
 
@@ -20,12 +21,33 @@ require ['common'], () ->
         'MainRegion': '#main'
       })
 
-      app.MainRegion.show(
+      ###app.MainRegion.show(
         new TodoView({
           'model': new TodoModel({
             'title': 'Love Mimosa',
             'done': true
           })
+        })
+      )###
+
+      app.MainRegion.show(
+        new TodoCollectionView({
+          'collection': new TodoCollection([
+            {
+              id: 0,
+              done: true,
+              title: 'Install Mimosa'
+            },{
+              id: 1,
+              done: true,
+              title: 'Launch Mimosa-Server'
+            },{
+              id: 2,
+              done: false,
+              title: 'Extend Todo-App'
+            }
+          ]),
+          'template': TodoCollectionTemplate
         })
       )
 
