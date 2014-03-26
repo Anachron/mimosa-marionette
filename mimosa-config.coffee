@@ -1,6 +1,20 @@
 exports.config = {
 
-  modules: ['jshint', 'csslint', 'server', 'require', 'minify-js', 'minify-css', 'live-reload', 'bower', 'coffeescript', 'less', 'copy', 'testem-require', 'server-reload']
+  modules: [
+    'jshint', 
+    'csslint', 
+    'server', 
+    'require', 
+    'minify-js', 
+    'minify-css', 
+    'live-reload', 
+    'bower', 
+    'coffeescript', 
+    'less', 
+    'copy', 
+    'testem-require', 
+    'server-reload'
+  ]
 
   server:
     views:
