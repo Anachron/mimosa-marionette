@@ -41,6 +41,8 @@ exports.config = {
           'hbs.js'
         ]
 
+  # Due to Windows compatibility issues I had to turn this off by default.
+  # You can create your own testscript using mimosa testscript and then execute it from the cli
   testemRequire:
     executeDuringBuild: false
     executeDuringWatch: false
