@@ -28,18 +28,8 @@ exports.config = {
   bower:
     copy:
       mainOverrides:
-        'assemble-handlebars-helpers': [
-          'lib/': 'handlebars-helpers/lib/', 
-          'lib/helpers': 'handlebars-helpers/lib/helpers', 
-          'lib/utils': 'handlebars-helpers/lib/utils', 
-          'lib/utils/lib': 'handlebars-helpers/lib/utils/lib',
-          'index.js': 'handlebars-helpers/index.js'
-        ]
         'handlebars': [
           'handlebars.js'
-        ]
-        'marionette.loading': [
-          'marionette.loading.js'
         ]
         'semantic': [
           'build/packaged/fonts': '../../fonts/vendor/semantic'
