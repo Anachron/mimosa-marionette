@@ -4,13 +4,10 @@
       .left.menu
         .title.item
           b Startpage
-        a.launch.item(href='/')
+        a(class="#{page=='index' ? 'active' : ''} launch item", href='/')
           i.ui.home.icon
           | Home
-        a.launch.item(href='/contact')
-          i.ui.mail.icon
-          | Contact
       .right.menu
-        a.item(href='/info')
+        a(class="#{page=='info' ? 'active' : ''} item", href='/info')
           i.ui.info.icon
           | Info

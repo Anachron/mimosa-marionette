@@ -34,12 +34,11 @@ exports.startServer = (config, callback) ->
     reload:     config.liveReload.enabled
 
   app.get '/', (req, res) ->
+    options.page = 'index'
     res.render 'index', options
 
   app.get '/info', (req, res) ->
+    options.page = 'info'
     res.render 'info', options
-
-  app.get '/contact', (req, res) ->
-    res.render 'contact', options
 
   callback(server)
