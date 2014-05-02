@@ -1,6 +1,8 @@
 express      =  require 'express'
 engines      =  require 'consolidate'
+childProc    =  require 'child_process'
 packJson     =  require './package.json'
+bowJson      =  require './bower.json'
 
 exports.startServer = (config, callback) ->
 
@@ -39,6 +41,21 @@ exports.startServer = (config, callback) ->
 
   app.get '/info', (req, res) ->
     options.page = 'info'
+    options.node = {
+      'version': 'unknown'
+    }
+    options.npm = {
+      'version': 'unknown',
+      'modules': {}
+    }
+    options.mimosa = {
+      'version': 'unknown',
+      'modules': {}
+    }
+    options.bower = {
+      'version': 'unknown',
+      'modules': {}
+    }
     res.render 'info', options
 
   callback(server)
