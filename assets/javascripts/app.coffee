@@ -5,8 +5,10 @@ require ['common'], () ->
       'semantic',
       'j/app/collections/Todo',
       'j/app/views/collections/Todo',
-      'hbs!t/app/collections/Todo'
-    ], (Marionette, $, semantic, TodoCollection, TodoCollectionView, TodoCollectionTemplate) ->
+      'hbs!t/app/collections/Todo',
+      'j/app/views/items/TodoSort',
+      'hbs!t/app/items/TodoSort'
+    ], (Marionette, $, semantic, TodoCollection, TodoCollectionView, TodoCollectionTemplate, TodoSortView, TodoSortTemplate) ->
 
       app = new Marionette.Application()
 
@@ -50,5 +52,12 @@ require ['common'], () ->
           'template': TodoCollectionTemplate
         })
       )
+
+      ###
+      app.MainRegion.show(
+        new TodoSortView({
+          'template': TodoSortTemplate
+        })
+      )###
 
       console.log app.MainRegion
