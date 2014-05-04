@@ -1,19 +1,19 @@
 exports.config = {
 
   modules: [
-    'jshint',
-    'csslint',
-    'server',
-    'require',
-    'minify-js',
-    'minify-css',
-    'live-reload',
-    'bower',
-    'coffeescript',
-    'less',
-    'copy',
-    'testem-require',
-    'server-reload'
+    'bower',          # Manage dependencies with Bower.io
+    'coffeescript',   # Allow converting of CoffeeScript
+    'copy',           # Use the copy module for misc files
+    'csslint',        # Lint CSS and find mistakes/unclean styles
+    'jshint',         # Lint JS and find mistakes/unclean code
+    'less',           # Compile LESS-Styles to CSS
+    'live-reload',    # Reload changes from editor directly in browser
+    'minify-js',      # Minify JavaScript, if wanted
+    'minify-css',     # Minify Stylesheets, if wanted
+    'require',        # Use the Require-Plugin, needed for Handlebars and CSS-Require
+    'server',         # Use the Server-Plugin, used with ExpressJS
+    'server-reload'   # Reload the server if Server-Files change
+    'testem-require', # Write tests with Testem
   ]
 
   server:
