@@ -40,6 +40,12 @@ exports.config = {
         'require-hbs': [
           'hbs.js'
         ]
+  
+  # Adhoc module allows us to execute local project/skeleton based scripts
+  # Easily without making them a module. They got injected into the Workflow automatically.
+  adhocModule:
+    modules: []
+  
 
   # Due to Windows compatibility issues I had to turn this off by default.
   # You can create your own testscript using mimosa testscript and then execute it from the cli
