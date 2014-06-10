@@ -19,9 +19,9 @@ var _fixBower = function( mimosaConfig, options, next ) {
     }
     
     // replace images
-    data = data.replace( '../images/', '/images/vendor' );
+    data = data.replace( '../images/', '/images/vendor/' );
     // replace fonts
-    data = data.replace( '../fonts/', '/fonts/vendor' );
+    data = data.replace( '../fonts/', '/fonts/vendor/' );
     
     fs.writeFile( semanticCSS, data, function ( error ) {
       if(error){
