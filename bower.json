@@ -1,6 +1,6 @@
 {
   "name": "mimosa-marionette",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "dependencies": {
     "backbone": "~1.1.2",
     "backbone.babysitter": "~0.1.0",
@@ -12,6 +12,7 @@
     "require-hbs": "epeli/requirejs-hbs",
     "require-css": "~0.1.2",
     "require-text": "requirejs/text",
-    "requirejs": "~2.1.11"
+    "requirejs": "~2.1.11",
+    "semantic": "~0.13.0"
   }
 }
