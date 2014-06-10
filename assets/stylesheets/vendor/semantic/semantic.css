@@ -4266,8 +4266,8 @@ body > .ui.grid {
 
 @font-face {
   font-family: 'Basic Icons';
-  src: url(/fonts/vendor/semantic//basic.icons.eot);
-  src: url(/fonts/vendor/semantic//basic.icons.eot?#iefix) format('embedded-opentype'), url(/fonts/vendor/semantic//basic.icons.svg#basic.icons) format('svg'), url(/fonts/vendor/semantic//basic.icons.woff) format('woff'), url(/fonts/vendor/semantic//basic.icons.ttf) format('truetype');
+  src: url(/fonts/vendor/semantic/basic.icons.eot);
+  src: url(/fonts/vendor/semantic/basic.icons.eot?#iefix) format('embedded-opentype'), url(/fonts/vendor/semantic/basic.icons.svg#basic.icons) format('svg'), url(/fonts/vendor/semantic/basic.icons.woff) format('woff'), url(/fonts/vendor/semantic/basic.icons.ttf) format('truetype');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -7365,8 +7365,8 @@ h5.ui.header {
 
 @font-face {
   font-family: 'Icons';
-  src: url(/fonts/vendor/semantic//icons.eot);
-  src: url(/fonts/vendor/semantic//icons.eot?#iefix) format('embedded-opentype'), url(/fonts/vendor/semantic//icons.svg#icons) format('svg'), url(/fonts/vendor/semantic//icons.woff) format('woff'), url(/fonts/vendor/semantic//icons.ttf) format('truetype');
+  src: url(/fonts/vendor/semantic/icons.eot);
+  src: url(/fonts/vendor/semantic/icons.eot?#iefix) format('embedded-opentype'), url(/fonts/vendor/semantic/icons.svg#icons) format('svg'), url(/fonts/vendor/semantic/icons.woff) format('woff'), url(/fonts/vendor/semantic/icons.ttf) format('truetype');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
