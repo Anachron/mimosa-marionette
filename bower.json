@@ -1,6 +1,6 @@
 {
   "name": "mimosa-marionette",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "dependencies": {
     "backbone": "~1.1.2",
     "backbone.babysitter": "~0.1.0",
