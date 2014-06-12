@@ -11,7 +11,7 @@ exports.config = {
   and do not need to be installed. If a module is listed here that Mimosa is unaware of, Mimosa
   will attempt to install it.
   ###
-  modules: ['copy', 'jshint', 'csslint', 'server', 'require', 'minify-js', 'minify-css', 'live-reload', 'bower']
+  modules: ["bower","copy","csslint","jshint","live-reload","minify-css","minify-js","require","server","adhoc-module","coffeescript","less","server-reload","testem-require"]
 
   watch:
     sourceDir: "assets"                # directory location of web assets, can be relative to
@@ -118,139 +118,6 @@ exports.config = {
       onSuccess: true      # Controls whether to Growl when assets successfully compile/copy
 	
 
-  server:                      # configuration for server when server option is enabled via CLI
-    defaultServer:
-      enabled: false           # whether or not mimosa starts a default server for you, when
-                               # true, mimosa starts its own on the port below, when false,
-                               # Mimosa will use server provided by path below
-      onePager: false          # Whether or not your app is a one page application. When set to
-                               # true, all routes will be pointed at index
-    path: 'server.coffee' or 'server.js'  # valid when defaultServer.enabled: false, path to file
-                               # for provided server which must contain export startServer method
-                               # that takes an enriched mimosa-config object. Either server.coffee
-                               # or server.js files will be found and used by default.
-    packageJSONDir: null       # If using own server, not default server, this is the location of
-                               # project's package.json. Defaults to location of mimosa-config.
-    port: 3000                 # port to start server on
-    base: ''                   # base of url for the app, if altered should start with a slash
-    views:                     # configuration for the view layer of your application
-      compileWith: 'jade'      # Valid options: "jade", "hogan", "html", "ejs", "handlebars", "dust".
-                               # The compiler for your views.
-      extension: 'jade'        # extension of your server views
-      path: 'views'            # This is the path to project views, it can be absolute or
-                               # relative. If defaultServer.enabled is true, it is relative to the
-                               # root of the project. If defaultServer.enabled is false it is
-                               # relative to the server.path setting above.
-
-  minifyJS:                     # Configuration for minifying/cleaning js using the
-                                # --minify flag
-    exclude:[/\.min\./]         # List of string paths and regexes to match files to exclude
-                                # when running minification. Any path with ".min." in its name,
-                                # is assumed to already be minified and is ignored by default.
-                                # Paths can be relative to the watch.compiledDir, or absolute. 
-                                # Paths are to compiled files,  so '.js' rather than '.coffee'
-
-
-  minifyCSS:                    # Configuration for minifying/cleaning css using the
-                                # --minify flag
-    exclude:[/\.min\./]         # List of string paths and regexes to match files to exclude
-                                # when running minification. Any path with ".min." in its name,
-                                # is assumed to already be minified and is ignored by default.
-                                # Paths can be relative to the watch.compiledDir, or absolute. 
-                                # Paths are to compiled files,  so '.css' rather than '.styl'
-
-
-  jshint:                  # settings for javascript hinting
-    exclude:[]               # array of strings or regexes that match files to not jshint,
-                             # strings are paths that can be relative to the watch.sourceDir
-                             # or absolute
-    compiled: true           # fire jshint on successful compile of meta-language to javascript
-    copied: true             # fire jshint for copied javascript files
-    vendor: false            # fire jshint for copied vendor javascript files (like jquery)
-    jshintrc: ".jshintrc"  # This is the path, either relative to the root of the project or
-                             # absolute, to a .jshintrc file. By default mimosa will look at
-                             # the root of the project for this file. The file does not need to
-                             # be present. If it is present, it must be valid JSON.
-    rules:                   # Settings: http://www.jshint.com/options/, these settings will
-                             # override any settings set up in the jshintrc
-      plusplus: true         # This is an example override, this is not a default
-
-  csslint:                    # settings for javascript hinting
-    exclude:[]               # array of strings or regexes that match files to not csslint,
-                             # strings are paths that can be relative to the watch.sourceDir
-                             # or absolute
-    compiled: true           # fire csslint on successful compile of meta-language to javascript
-    copied: true             # fire csslint for copied javascript files
-    vendor: false            # fire csslint for copied vendor javascript files (like jquery)
-    rules:                   # Settings: http://www.csslint.com/options/, these settings will
-                             # override any settings set up in the csslintrc
-      floats: false          # This is an example override, this is not a default
-	
-
-  liveReload:                   # Configuration for live-reload
-    enabled:true                # Whether or not live-reload is enabled
-    additionalDirs:["views"]    # Additional directories outside the watch.compiledDir
-                                # that you would like to have trigger a page refresh,
-                                # like, by default, static views. Is string path,
-                                # can be relative to project root, or absolute	
-
-  require:                   # configuration for requirejs options.
-    exclude:[]               # Regex or string paths. Paths can be absolute or relative to the
-                             # watch.javascriptDir. These files will be excluded from all
-                             # require module functionality. That includes AMD verification and
-                             # being considered a root level file to be optimized.
-    commonConfig: "common"   # The path from 'javascriptDir' to the location of common requirejs
-                             # config. This is config shared across multiple requirejs modules.
-                             # This should be either a require.config({}) or a requirejs.config({})
-                             # function call. Defaults to the value `common` - referring to a file
-                             # named common.js in the root of javascriptDir. Does not need to
-                             #  exist, so can be left alone if a commonConfig is not being used.
-    tracking:                # every time mimosa starts up, mimosa-require needs to be able to
-                             # build a dependency graph for the codebase. It can do that by
-                             # processing all the files, but that means each file needs to be
-                             # processed when mimosa watch starts which slows down startup.
-                             # tracking allows mimosa-require to write interim state to the file
-                             # system so that from one mimosa run to another it can persist the
-                             # important information and not need the entire application to be
-                             # rebuilt
-      enabled: true          # whether or not tracking is enabled
-      path: ".mimosa/require/tracking.json" # the path to the tracking file relative to the
-                             # root of the project.
-    verify:                  # settings for requirejs path verification
-      enabled: true          # Whether or not to perform verification
-      plugins:               # config for plugins. mimosa-require will verify plugin paths that
-                             # are listed as dependencies. It does not keep track of plugins
-                             # otherwise.
-        css:"css"            # these are the built-in default plugins. The key is the name of the
-        hbs:"hbs"            # plugin, the value before the !, and the value is the extension used
-                             # for those files. If you update this setting to add a new plugin,
-                             # consider opening a mimosa-require issue to make that plugin another
-                             # default. If the extension is already a part of the dependency path
-                             # set the value to null.
-    optimize :
-      inferConfig:true       # Mimosa figures out all you'd need for a simple r.js optimizer run.
-                             # If you rather Mimosa not do that, set inferConfig to false and
-                             # provide your config in the overrides section. See here
-                             # https://github.com/dbashford/mimosa#requirejs-optimizer-defaults
-                             # to see what the defaults are.
-      modules:               # If using a modules config, place it here. mimosa-require will use
-                             # the modules config directly, but also base many other r.js config
-                             # options based on a modules setup instead of a single file setup.
-      moduleCachingPath: ".mimosa/require/moduleCaching" # Only valid if using modules. This
-                             # path is where pristine root module files are kept in between r.js
-                             # runs. This cache allows you to keep "mimosa watch" running while
-                             # building and rebuilding your application.
-      overrides:             # Optimization configuration and Mimosa overrides. If you need to
-                             # make tweaks uncomment this line and add the r.js config
-                             # (http://requirejs.org/docs/optimization.html#options) as new
-                             # paramters inside the overrides ojbect. To unset Mimosa's defaults,
-                             # set a property to null.
-                             #
-                             # overrides can also be a function that takes mimosa-require's
-                             # inferred config for each module. This allows the inferred config
-                             # to be updated and enhanced instead of just overridden.
-	
-
   bower:                          # Configuration for bower module
     watch: true                   # Whether or not to watch the bower.json file to automatically
                                   # kick off a bower install when it changes.
@@ -328,5 +195,222 @@ exports.config = {
     exclude: []      # List of regexes or strings to match files that should not be copied
                      # but that you might still want processed. String paths can be absolute
                      # or relative to the watch.sourceDir. Regexes are applied to the entire path.
+
+  csslint:                    # settings for javascript hinting
+    exclude:[]               # array of strings or regexes that match files to not csslint,
+                             # strings are paths that can be relative to the watch.sourceDir
+                             # or absolute
+    compiled: true           # fire csslint on successful compile of meta-language to javascript
+    copied: true             # fire csslint for copied javascript files
+    vendor: false            # fire csslint for copied vendor javascript files (like jquery)
+    rules:                   # Settings: http://www.csslint.com/options/, these settings will
+                             # override any settings set up in the csslintrc
+      floats: false          # This is an example override, this is not a default
+
+  jshint:                  # settings for javascript hinting
+    exclude:[]               # array of strings or regexes that match files to not jshint,
+                             # strings are paths that can be relative to the watch.sourceDir
+                             # or absolute
+    compiled: true           # fire jshint on successful compile of meta-language to javascript
+    copied: true             # fire jshint for copied javascript files
+    vendor: false            # fire jshint for copied vendor javascript files (like jquery)
+    jshintrc: ".jshintrc"  # This is the path, either relative to the root of the project or
+                             # absolute, to a .jshintrc file. By default mimosa will look at
+                             # the root of the project for this file. The file does not need to
+                             # be present. If it is present, it must be valid JSON.
+    rules:                   # Settings: http://www.jshint.com/options/, these settings will
+                             # override any settings set up in the jshintrc
+      plusplus: true         # This is an example override, this is not a default
+	
+
+  liveReload:                   # Configuration for live-reload
+    enabled:true                # Whether or not live-reload is enabled
+    additionalDirs:["views"]    # Additional directories outside the watch.compiledDir
+                                # that you would like to have trigger a page refresh,
+                                # like, by default, static views. Is string path,
+                                # can be relative to project root, or absolute
+  minifyCSS:                    # Configuration for minifying/cleaning css using the
+                                # --minify flag
+    exclude:[/\.min\./]         # List of string paths and regexes to match files to exclude
+                                # when running minification. Any path with ".min." in its name,
+                                # is assumed to already be minified and is ignored by default.
+                                # Paths can be relative to the watch.compiledDir, or absolute. 
+                                # Paths are to compiled files,  so '.css' rather than '.styl'
+    options: {}                 # Import options for clean-css package, see list of options here
+                                # https://github.com/GoalSmashers/clean-css#how-to-use-clean-css-programmatically
+      processImport: false      # defaults to not processing (stripping) @import statements
+
+  minifyJS:                     # Configuration for minifying/cleaning js using the
+                                # --minify flag
+    exclude:[/\.min\./]         # List of string paths and regexes to match files to exclude
+                                # when running minification. Any path with ".min." in its name,
+                                # is assumed to already be minified and is ignored by default.
+                                # Paths can be relative to the watch.compiledDir, or absolute. 
+                                # Paths are to compiled files,  so '.js' rather than '.coffee'
+
+	
+
+  require:                   # configuration for requirejs options.
+    exclude:[]               # Regex or string paths. Paths can be absolute or relative to the
+                             # watch.javascriptDir. These files will be excluded from all
+                             # require module functionality. That includes AMD verification and
+                             # being considered a root level file to be optimized.
+    commonConfig: "common"   # The path from 'javascriptDir' to the location of common requirejs
+                             # config. This is config shared across multiple requirejs modules.
+                             # This should be either a require.config({}) or a requirejs.config({})
+                             # function call. Defaults to the value `common` - referring to a file
+                             # named common.js in the root of javascriptDir. Does not need to
+                             #  exist, so can be left alone if a commonConfig is not being used.
+    tracking:                # every time mimosa starts up, mimosa-require needs to be able to
+                             # build a dependency graph for the codebase. It can do that by
+                             # processing all the files, but that means each file needs to be
+                             # processed when mimosa watch starts which slows down startup.
+                             # tracking allows mimosa-require to write interim state to the file
+                             # system so that from one mimosa run to another it can persist the
+                             # important information and not need the entire application to be
+                             # rebuilt
+      enabled: true          # whether or not tracking is enabled
+      path: ".mimosa/require/tracking.json" # the path to the tracking file relative to the
+                             # root of the project.
+    verify:                  # settings for requirejs path verification
+      enabled: true          # Whether or not to perform verification
+      plugins:               # config for plugins. mimosa-require will verify plugin paths that
+                             # are listed as dependencies. It does not keep track of plugins
+                             # otherwise.
+        css:"css"            # these are the built-in default plugins. The key is the name of the
+        hbs:"hbs"            # plugin, the value before the !, and the value is the extension used
+                             # for those files. If you update this setting to add a new plugin,
+                             # consider opening a mimosa-require issue to make that plugin another
+                             # default. If the extension is already a part of the dependency path
+                             # set the value to null.
+    optimize :
+      inferConfig:true       # Mimosa figures out all you'd need for a simple r.js optimizer run.
+                             # If you rather Mimosa not do that, set inferConfig to false and
+                             # provide your config in the overrides section. See here
+                             # https://github.com/dbashford/mimosa#requirejs-optimizer-defaults
+                             # to see what the defaults are.
+      modules:               # If using a modules config, place it here. mimosa-require will use
+                             # the modules config directly, but also base many other r.js config
+                             # options based on a modules setup instead of a single file setup.
+      moduleCachingPath: ".mimosa/require/moduleCaching" # Only valid if using modules. This
+                             # path is where pristine root module files are kept in between r.js
+                             # runs. This cache allows you to keep "mimosa watch" running while
+                             # building and rebuilding your application.
+      overrides:             # Optimization configuration and Mimosa overrides. If you need to
+                             # make tweaks uncomment this line and add the r.js config
+                             # (http://requirejs.org/docs/optimization.html#options) as new
+                             # paramters inside the overrides ojbect. To unset Mimosa's defaults,
+                             # set a property to null.
+                             #
+                             # overrides can also be a function that takes mimosa-require's
+                             # inferred config for each module. This allows the inferred config
+                             # to be updated and enhanced instead of just overridden.
+	
+
+  server:                      # configuration for server when server option is enabled via CLI
+    defaultServer:
+      enabled: false           # whether or not mimosa starts a default server for you, when
+                               # true, mimosa starts its own on the port below, when false,
+                               # Mimosa will use server provided by path below
+      onePager: false          # Whether or not your app is a one page application. When set to
+                               # true, all routes will be pointed at index
+    path: 'server.coffee' or 'server.js'  # valid when defaultServer.enabled: false, path to file
+                               # for provided server which must contain export startServer method
+                               # that takes an enriched mimosa-config object. Either server.coffee
+                               # or server.js files will be found and used by default.
+    packageJSONDir: null       # If using own server, not default server, this is the location of
+                               # project's package.json. Defaults to location of mimosa-config.
+    port: 3000                 # port to start server on
+    base: ''                   # base of url for the app, if altered should start with a slash
+    views:                     # configuration for the view layer of your application
+      compileWith: 'jade'      # Valid options: "jade", "hogan", "html", "ejs", "handlebars", "dust".
+                               # The compiler for your views.
+      extension: 'jade'        # extension of your server views
+      path: 'views'            # This is the path to project views, it can be absolute or
+                               # relative. If defaultServer.enabled is true, it is relative to the
+                               # root of the project. If defaultServer.enabled is false it is
+                               # relative to the server.path setting above.
+
+  adhocModule:     # config for adhocModule module
+    modules: []    # An array of 'require' calls. The code `require`d in must expose a
+                   # 'registration' function. For information on the 'registration'
+                   # function and how to use it, see virtually any Mimosa module,
+                   # including this one.
+	
+
+  coffeescript:              # config settings for the coffeescript compiler module
+    lib: undefined           # use this property to provide a specific version of CoffeeScript
+    extensions: ["coffee", "litcoffee"]  # default extensions for CoffeeScript files
+    sourceMapDynamic: true   # whether or not to inline the source maps in the compiled JavaScript
+    sourceMapExclude: [/\/specs?\//, /_spec.js$/] # files to exclude from source map generation
+    sourceMapConditional: false # whether or not to use conditional source maps
+    options:                 # options for the CoffeeScript compiler
+      sourceMap:true         # whether or not to create source maps
+      bare:true              # whether or not to use the default safety wrapper
+	
+
+  less:                  # config settings for the Less compiler module
+    lib: undefined       # use this property to provide a specific version of Less
+    sourceMap: true      # a less compiler option to turn on/off source maps
+    extensions: ["less"]   # default extensions for Less files
+	
+
+  serverReload:        # Configuration for automatically restarting a user's server. Used in
+                       # conjunction with the 'mimosa-server' module.
+    ###
+    # "watch" is an array of strings, folders and files whose contents trigger a server reload when
+    # they are changed.  Can be relative to the base of the project or can be absolute
+    ###
+    watch: ["server.coffee", "server.js", "server.ls", "server.iced", "routes", "src", "lib"]
+    exclude:[]         # An array of regexs or strings that match files to exclude from
+                       # reloading the server. Can be a mix of regex and strings. Strings
+                       # should be a path relative to the base of the project (location of
+                       # mimosa-config) or absolute. ex: [/.txt$/,"src/README.md"]
+    validate: true     # set validate to false if you do not want Mimosa to validate that the
+                       # changed files inside 'watch' are safe to use. If you, for instance,
+                       # write not-compilable CoffeeScript inside one of the 'folder's, when
+                       # Mimosa restarts your server, your server will fail and Mimosa will
+                       # error out. Turn validation off if you are running live reload on
+                       # non-JavaScript files, like your server views.
+	
+
+  testemSimple:               # Configuration for the testem-simple module
+    configFile: ".mimosa/testemRequire/testem.json" # path from the root of the mimosa application to the testem
+                              # config file.
+    port: null                # port to run the ci server on. If you re running ci and non-ci
+                              # at the same time, this setting allows you to avoid running on
+                              # same port
+
+    watch: []         # "watch" is an array of strings, folders and files whose contents
+                      # trigger re-running all tests when they are changed.  Can be relative
+                      # to the base of the project or can be absolute
+    exclude:[]        # An array of regexs or strings that match files to exclude from
+                      # re-running the tests. Can be a mix of regex and strings. Strings
+                      # should be a path relative to the base of the project (location of
+                      # mimosa-config) or absolute. ex: [/.txt$/,"src/README.md"]
+	
+
+  testemRequire:                  # Configuration for the testem-require module
+    executeDuringBuild            # If true the tests will get executed during build.
+    executeDuringWatch            # If true the tests will get executed during watch with each file change.
+    specConvention: /[_-](spec|test).js$/ # Convention for how test specs are named
+    assetFolder: ".mimosa/testemRequire"        # Path from the root of the project to the folder that will
+                                  # contain all the testing assets that the testemRequire
+                                  # module maintains and writes. If the folder does not exist
+                                  # it will be created.
+    safeAssets: []                # An array of file names testem-require will not overwrite.
+                                  # By default testem-require overwrites any file it outputs.
+                                  # So, for instance, if you have a specific version of
+                                  # "mocha.js" you need to use, this setting should be ["mocha.js"]
+    testemConfig:                 # Pass through values for the testem.json configuration.
+                                  # The module will write the testem.json for you
+      "launch_in_dev": ["Firefox", "Chrome"] # In dev mode launches in Firefox and Chrome
+      "launch_in_ci": ["PhantomJS"]          # In CI mode uses PhantomJS (must be installed)
+    mochaSetup:                   # Setup for Mocha
+      ui : 'bdd'                  # Mocha is set to bdd mode by default
+    requireConfig: {}             # RequireJS configuration. By default the mimosa-require
+                                  # module is used by mimosa-testem-require to derive a
+                                  # requirejs config.  But if that derived config isn't right
+                                  # a config can be pasted here.
 
 }
