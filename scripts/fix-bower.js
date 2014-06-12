@@ -40,7 +40,7 @@ var _fixFile = function ( filePath, fileFixes, mimosaConfig ) {
     fileData = fs.readFileSync( filePath, 'utf-8' );
     for ( var sourcePath in fileFixes ) {
       var targetPath = fileFixes[sourcePath]; 
-      fileData = fileData.replace( sourcePath, targetPath );
+      fileData = fileData.replace( new RegExp( sourcePath, 'g' ), targetPath );
     }
 
     fs.writeFileSync( filePath, fileData );
