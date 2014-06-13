@@ -4,32 +4,41 @@ var path = require ( 'path' );
 
 var _fixBower = function( mimosaConfig, options, next ) {
   
-  toFix = /*mimosaConfig.bowerFix.rules || */{
+  var toFix = /*mimosaConfig.bowerFix.rules || */{
     '$cssVendor$/semantic/semantic.css': {
-      '../images/': '/images/vendor',
-      '../fonts/': '/fonts/vendor/'
+      '../images/': '/images/vendor/semantic/',
+      '../fonts/': '/fonts/vendor/semantic/'
     }
   };
   
-  amount = Object.keys( toFix ).length;
+  var amount = Object.keys( toFix ).length;
+  var fine = 0;
   
-  if( amount == 0 ) {
-    mimosaConfig.log.info( '[[ No ]] bower assets to fix.' );
+  if ( amount == 0 ) {
+    mimosaConfig.log.info( '[[ No ]] bower assets to fix' );
     next();
     return;
   }
   
-  mimosaConfig.log.info( 'Will fix [[ ' + amount + ' ]] assets.' );
+  mimosaConfig.log.info( 'Assets to fix: [[ ' + amount + ' ]]' );
   
   for ( var filePath in toFix ) {
-    _fixFile ( filePath, toFix[filePath], mimosaConfig );
+    if ( _fixFile( filePath, toFix[filePath], mimosaConfig )) {
+      fine++; 
+    }
   }
   
-  mimosaConfig.log.success( 'Asset fixing finished.' );
+  var errors = amount - fine;
+  
+  if ( errors == 0 ) {
+    mimosaConfig.log.success( 'Finished. [[ ' + fine + ' ]] fixed');
+  } else {
+    mimosaConfig.log.warning( 'Finished. [[ ' + fine + ' ]] fixed, [[ ' + errors + ' ]] not'); 
+  }
   next();
 };
 
-var _fixFile = function ( filePath, fileFixes, mimosaConfig ) {
+var _fixFile = function( filePath, fileFixes, mimosaConfig ) {
   filePath = filePath.replace( '$sourceDir$', mimosaConfig.watch.sourceDir )
     .replace( '$cssVendor$', mimosaConfig.vendor.stylesheets )
     .replace( '$jsVendor$', mimosaConfig.vendor.javascripts );
@@ -38,18 +47,31 @@ var _fixFile = function ( filePath, fileFixes, mimosaConfig ) {
   
   try {
     fileData = fs.readFileSync( filePath, 'utf-8' );
+    if ( fileData.length == 0 ) {
+      mimosaConfig.log.warning ( 'Asset [[ ' + filePath + ' ]] is empty' );
+      return;
+    }
     for ( var sourcePath in fileFixes ) {
       var targetPath = fileFixes[sourcePath]; 
-      fileData = fileData.replace( new RegExp( sourcePath, 'g' ), targetPath );
+      fileData = fileData.replace( 
+        _fixRegExp( sourcePath ),
+        targetPath
+      );
     }
 
     fs.writeFileSync( filePath, fileData );
   } catch (error){
     mimosaConfig.log.error( 'Cannot fix [[ ' + filePath + ' ]]: ' );
     mimosaConfig.log.error( error.message );
+    return false;
   }
+  return true;
 };
+
+var _fixRegExp = function( string ) {
+  return new RegExp( string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1" ), 'g' );
+}
  
 exports.registration = function( mimosaConfig, register ) {
-  register( ['postBuild'], 'init', _fixBower );
+  register( ['preBuild'], 'init', _fixBower );
 };
